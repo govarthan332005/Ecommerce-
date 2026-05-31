@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="LUXE - Premium luxury shopping destination. Discover curated collections of fashion, accessories, tech, and lifestyle products.">
+    <title>LUXE — Where Luxury Meets Lifestyle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Modern Icons: Lucide + Phosphor + Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/extras.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Playfair Display, serif' font-size='55' font-weight='700' fill='%23d4af37'%3EL%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+    <!-- ============== CINEMATIC LOADER ============== -->
+    <div class="loader" id="loader">
+        <div class="loader-particles" id="loaderParticles"></div>
+        <div class="loader-ring">
+            <svg viewBox="0 0 200 200" class="loader-svg">
+                <defs>
+                    <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f4d47c"/>
+                        <stop offset="50%" stop-color="#d4af37"/>
+                        <stop offset="100%" stop-color="#a8862a"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="2"/>
+                <circle cx="100" cy="100" r="90" fill="none" stroke="url(#loaderGrad)" stroke-width="2"
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48" class="loader-circle"/>
+            </svg>
+        </div>
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-letter">L</span>
+            </div>
+            <div class="loader-text-wrap">
+                <span class="loader-text-letter">L</span>
+                <span class="loader-text-letter">U</span>
+                <span class="loader-text-letter">X</span>
+                <span class="loader-text-letter">E</span>
+            </div>
+            <div class="loader-tagline">Where Luxury Meets Lifestyle</div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+            <div class="loader-percent"><span id="loaderPercent">0</span>%</div>
+        </div>
+        <div class="loader-corner tl">◆</div>
+        <div class="loader-corner tr">◆</div>
+        <div class="loader-corner bl">◆</div>
+        <div class="loader-corner br">◆</div>
+    </div>
+
+    <!-- ============== SCROLL PROGRESS BAR ============== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ============== CUSTOM CURSOR (desktop) ============== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ============== ANNOUNCEMENT BAR ============== -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <span><i class="ph-fill ph-sparkle"></i> FREE SHIPPING ON ORDERS OVER $150</span>
+            <span>◆</span>
+            <span><i class="ph-fill ph-gift"></i> GET 20% OFF YOUR FIRST ORDER — CODE: LUXE20</span>
+            <span>◆</span>
+            <span><i class="ph-fill ph-diamond"></i> NEW COLLECTION DROP — SHOP NOW</span>
+            <span>◆</span>
+            <span><i class="ph-fill ph-globe"></i> WORLDWIDE EXPRESS DELIVERY</span>
+            <span>◆</span>
+            <span><i class="ph-fill ph-sparkle"></i> FREE SHIPPING ON ORDERS OVER $150</span>
+            <span>◆</span>
+            <span><i class="ph-fill ph-gift"></i> GET 20% OFF YOUR FIRST ORDER — CODE: LUXE20</span>
+            <span>◆</span>
+        </div>
+    </div>
+
+    <!-- ============== HEADER ============== -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f4d47c"/>
+                                <stop offset="50%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#a8862a"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="30" cy="30" r="28" fill="none" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <text x="30" y="40" text-anchor="middle" font-family="Playfair Display, serif" font-size="32" font-weight="700" fill="url(#logoGrad)">L</text>
+                    </svg>
+                </div>
+                <span class="logo-name">LUXE</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="active"><i class="ph ph-house-simple"></i>Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="#shop"><i class="ph ph-storefront"></i>Shop <i class="ph ph-caret-down chev"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-col">
+                                <h4><i class="ph-duotone ph-dress"></i> Fashion</h4>
+                                <a href="#">Women's Apparel</a>
+                                <a href="#">Men's Apparel</a>
+                                <a href="#">Designer Bags</a>
+                                <a href="#">Footwear</a>
+                            </div>
+                            <div class="mega-col">
+                                <h4><i class="ph-duotone ph-diamond"></i> Accessories</h4>
+                                <a href="#">Jewelry</a>
+                                <a href="#">Watches</a>
+                                <a href="#">Sunglasses</a>
+                                <a href="#">Belts</a>
+                            </div>
+                            <div class="mega-col">
+                                <h4><i class="ph-duotone ph-house-line"></i> Lifestyle</h4>
+                                <a href="#">Home Décor</a>
+                                <a href="#">Fragrance</a>
+                                <a href="#">Tech</a>
+                                <a href="#">Stationery</a>
+                            </div>
+                            <div class="mega-col mega-feature">
+                                <div class="mega-feature-img">
+                                    <i class="ph-fill ph-sparkle"></i>
+                                </div>
+                                <h4>New Arrivals</h4>
+                                <p>Discover the latest drops</p>
+                                <a href="#" class="mega-link">Shop Now <i class="ph ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#collections"><i class="ph ph-squares-four"></i>Collections</a></li>
+                    <li><a href="#new"><i class="ph ph-star"></i>New In</a></li>
+                    <li><a href="#sale" class="nav-sale"><i class="ph-fill ph-tag"></i>Sale</a></li>
+                    <li><a href="#about"><i class="ph ph-info"></i>About</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="action-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="ph ph-moon-stars sun-icon"></i>
+                    <i class="ph-fill ph-sun moon-icon"></i>
+                </button>
+                <button class="action-btn" id="searchBtn" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+                <button class="action-btn" aria-label="Account"><i class="ph ph-user-circle"></i></button>
+                <button class="action-btn compare-btn" id="compareBtn" aria-label="Compare">
+                    <i class="ph ph-scales"></i>
+                    <span class="badge" id="compareCount">0</span>
+                </button>
+                <button class="action-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </button>
+                <button class="action-btn cart-btn" id="cartBtn" aria-label="Cart">
+                    <i class="ph-fill ph-shopping-bag"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============== SEARCH OVERLAY ============== -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose"><i class="ph ph-x"></i></button>
+        <div class="search-content">
+            <h2>What are you looking for?</h2>
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search for products, brands, collections..." id="searchInput">
+            </div>
+            <div class="search-results" id="searchResults"></div>
+            <div class="search-suggestions" id="searchSuggestions">
+                <p>Popular searches:</p>
+                <div class="suggestion-tags">
+                    <span>Designer Bags</span>
+                    <span>Watches</span>
+                    <span>Sneakers</span>
+                    <span>Sunglasses</span>
+                    <span>Jewelry</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============== HERO ============== -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-orb orb-1"></div>
+            <div class="hero-orb orb-2"></div>
+            <div class="hero-orb orb-3"></div>
+            <div class="hero-grid-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tagline" data-aos="fade-up"><i class="ph-fill ph-sparkle"></i> Autumn / Winter Collection 2026</span>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Where <em>Luxury</em><br>
+                    Meets <span class="gold-text">Lifestyle</span>
+                </h1>
+                <p class="hero-text" data-aos="fade-up" data-aos-delay="200">
+                    Discover handpicked pieces from the world's most coveted designers. Curated for those who appreciate the extraordinary.
+                </p>
+                <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#products" class="btn btn-primary magnetic">
+                        <span>Shop Collection</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="#story" class="btn btn-ghost magnetic">
+                        <i class="ph-fill ph-play"></i>
+                        <span>Watch Story</span>
+                    </a>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat"><h3 data-count="500">0</h3><span class="stat-suffix">K+</span><p>Happy Customers</p></div>
+                    <div class="stat"><h3 data-count="10">0</h3><span class="stat-suffix">K+</span><p>Premium Products</p></div>
+                    <div class="stat"><h3 data-count="120">0</h3><span class="stat-suffix">+</span><p>Countries Served</p></div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+                <div class="hero-card hero-card-main tilt">
+                    <div class="hero-card-img" style="background-image: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+                        <div class="floating-product">
+                            <div class="product-shimmer"></div>
+                            <i class="ph-fill ph-diamond"></i>
+                        </div>
+                    </div>
+                    <div class="hero-card-tag">NEW</div>
+                </div>
+                <div class="hero-card hero-card-small hero-card-tl tilt">
+                    <div class="hero-card-img" style="background-image: linear-gradient(135deg, #d4af37 0%, #f4d47c 100%);">
+                        <i class="ph-fill ph-crown-simple"></i>
+                    </div>
+                </div>
+                <div class="hero-card hero-card-small hero-card-br tilt">
+                    <div class="hero-card-img" style="background-image: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 100%);">
+                        <i class="ph-fill ph-watch"></i>
+                    </div>
+                </div>
+                <div class="hero-floating-badge badge-rating">
+                    <i class="ph-fill ph-star"></i>
+                    <div><strong>4.9/5</strong><span>50K+ Reviews</span></div>
+                </div>
+                <div class="hero-floating-badge badge-shipping">
+                    <i class="ph-fill ph-truck"></i>
+                    <div><strong>Free</strong><span>Express Shipping</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-marquee">
+            <div class="marquee-track">
+                <span>GUCCI</span><span>◆</span>
+                <span>PRADA</span><span>◆</span>
+                <span>HERMÈS</span><span>◆</span>
+                <span>CHANEL</span><span>◆</span>
+                <span>LOUIS VUITTON</span><span>◆</span>
+                <span>DIOR</span><span>◆</span>
+                <span>VERSACE</span><span>◆</span>
+                <span>BALENCIAGA</span><span>◆</span>
+                <span>GUCCI</span><span>◆</span>
+                <span>PRADA</span><span>◆</span>
+                <span>HERMÈS</span><span>◆</span>
+                <span>CHANEL</span><span>◆</span>
+                <span>LOUIS VUITTON</span><span>◆</span>
+                <span>DIOR</span><span>◆</span>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============== FEATURES ============== -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up">
+                    <div class="feature-icon"><i class="ph-duotone ph-airplane-tilt"></i></div>
+                    <h4>Free Worldwide Shipping</h4>
+                    <p>On orders over $150 with express delivery</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="ph-duotone ph-arrow-u-up-left"></i></div>
+                    <h4>30-Day Returns</h4>
+                    <p>Hassle-free returns on all purchases</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="ph-duotone ph-shield-check"></i></div>
+                    <h4>Secure Payments</h4>
+                    <p>256-bit SSL encryption & buyer protection</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="ph-duotone ph-headset"></i></div>
+                    <h4>24/7 Concierge</h4>
+                    <p>Premium customer support whenever you need</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== CATEGORIES ============== -->
+    <section class="categories" id="collections">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">— Explore</span>
+                <h2 class="section-title">Shop by <em>Category</em></h2>
+                <p class="section-subtitle">Curated collections to elevate every aspect of your lifestyle</p>
+            </div>
+            <div class="category-grid">
+                <a href="#" class="category-card category-large" data-aos="fade-up" style="--cat-grad: linear-gradient(135deg, #1a1a2e 0%, #4a3a8f 100%);">
+                    <div class="category-content">
+                        <span class="cat-count">128 Items</span>
+                        <h3>Women's Fashion</h3>
+                        <p>Designer apparel & accessories</p>
+                        <span class="cat-link">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="category-icon"><i class="ph-duotone ph-dress"></i></div>
+                </a>
+                <a href="#" class="category-card" data-aos="fade-up" data-aos-delay="100" style="--cat-grad: linear-gradient(135deg, #2c2c2c 0%, #d4af37 100%);">
+                    <div class="category-content">
+                        <span class="cat-count">96 Items</span>
+                        <h3>Watches</h3>
+                        <span class="cat-link">Shop <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="category-icon"><i class="ph-duotone ph-watch"></i></div>
+                </a>
+                <a href="#" class="category-card" data-aos="fade-up" data-aos-delay="200" style="--cat-grad: linear-gradient(135deg, #8b0000 0%, #e84a5f 100%);">
+                    <div class="category-content">
+                        <span class="cat-count">84 Items</span>
+                        <h3>Jewelry</h3>
+                        <span class="cat-link">Shop <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="category-icon"><i class="ph-duotone ph-diamond"></i></div>
+                </a>
+                <a href="#" class="category-card" data-aos="fade-up" data-aos-delay="300" style="--cat-grad: linear-gradient(135deg, #0f3460 0%, #16537e 100%);">
+                    <div class="category-content">
+                        <span class="cat-count">152 Items</span>
+                        <h3>Men's Fashion</h3>
+                        <span class="cat-link">Shop <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="category-icon"><i class="ph-duotone ph-t-shirt"></i></div>
+                </a>
+                <a href="#" class="category-card category-large" data-aos="fade-up" data-aos-delay="400" style="--cat-grad: linear-gradient(135deg, #2d4a2b 0%, #6b8e23 100%);">
+                    <div class="category-content">
+                        <span class="cat-count">112 Items</span>
+                        <h3>Bags & Accessories</h3>
+                        <p>Luxury handbags & finishing touches</p>
+                        <span class="cat-link">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="category-icon"><i class="ph-duotone ph-handbag"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FEATURED PRODUCTS ============== -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">— Bestsellers</span>
+                <h2 class="section-title">Featured <em>Products</em></h2>
+                <p class="section-subtitle">Our most loved pieces, handpicked for you</p>
+            </div>
+
+            <div class="product-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all"><i class="ph ph-squares-four"></i>All</button>
+                <button class="filter-btn" data-filter="fashion"><i class="ph ph-dress"></i>Fashion</button>
+                <button class="filter-btn" data-filter="watches"><i class="ph ph-watch"></i>Watches</button>
+                <button class="filter-btn" data-filter="bags"><i class="ph ph-handbag"></i>Bags</button>
+                <button class="filter-btn" data-filter="jewelry"><i class="ph ph-diamond"></i>Jewelry</button>
+                <button class="filter-btn" data-filter="tech"><i class="ph ph-device-mobile"></i>Tech</button>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn btn-outline magnetic" id="loadMoreBtn">
+                    <span>Load More Products</span>
+                    <i class="ph ph-plus"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== BANNER ============== -->
+    <section class="banner-section" id="sale">
+        <div class="container">
+            <div class="banner" data-aos="zoom-in">
+                <div class="banner-content">
+                    <span class="banner-eyebrow"><i class="ph-fill ph-clock"></i> Limited Time Offer</span>
+                    <h2>Mid-Season <em>Sale</em></h2>
+                    <p>Up to <strong>50% off</strong> on selected designer pieces</p>
+                    <div class="banner-timer" id="bannerTimer">
+                        <div class="time-block"><span id="days">02</span><label>Days</label></div>
+                        <div class="time-block"><span id="hours">14</span><label>Hours</label></div>
+                        <div class="time-block"><span id="minutes">35</span><label>Mins</label></div>
+                        <div class="time-block"><span id="seconds">22</span><label>Secs</label></div>
+                    </div>
+                    <a href="#products" class="btn btn-primary magnetic">Shop the Sale <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <div class="banner-visual">
+                    <div class="banner-circle"><span>50</span><small>% OFF</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== NEW ARRIVALS ============== -->
+    <section class="products-section new-arrivals" id="new">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">— Just Landed</span>
+                <h2 class="section-title">New <em>Arrivals</em></h2>
+                <p class="section-subtitle">Fresh styles, just for you</p>
+            </div>
+            <div class="product-grid" id="newArrivalsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============== TESTIMONIALS ============== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">— Loved Worldwide</span>
+                <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="t-rating"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p>"Absolutely stunning quality. The attention to detail is unmatched. LUXE has become my go-to for premium pieces."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background: linear-gradient(135deg, #d4af37, #f4d47c);">S</div>
+                        <div><h5>Sophia Anderson</h5><span>Verified Buyer · New York</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="t-rating"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p>"The packaging alone is worth it. Every order feels like unwrapping a treasure. World-class experience from start to finish."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background: linear-gradient(135deg, #8b0000, #e84a5f);">M</div>
+                        <div><h5>Marcus Chen</h5><span>Verified Buyer · London</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="t-rating"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                    <p>"Fast shipping, perfect quality and amazing customer service. LUXE truly delivers on the luxury promise."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background: linear-gradient(135deg, #0f3460, #16537e);">A</div>
+                        <div><h5>Aisha Patel</h5><span>Verified Buyer · Dubai</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== NEWSLETTER ============== -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-card" data-aos="zoom-in">
+                <div class="newsletter-bg-shape"></div>
+                <div class="newsletter-content">
+                    <span class="section-eyebrow">— Stay in the loop</span>
+                    <h2>Join the <em>LUXE</em> Circle</h2>
+                    <p>Subscribe to receive 20% off your first order, early access to new collections, and exclusive member benefits.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe <i class="ph ph-arrow-right"></i></button>
+                    </form>
+                    <p class="newsletter-note">By subscribing, you agree to our Terms & Privacy Policy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== INSTAGRAM ============== -->
+    <section class="instagram">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">— @luxe.official</span>
+                <h2 class="section-title">Follow Us on <em>Instagram</em></h2>
+            </div>
+            <div class="insta-grid">
+                <div class="insta-item" style="--g: linear-gradient(135deg, #1a1a2e, #4a3a8f);"><i class="ph-fill ph-instagram-logo"></i></div>
+                <div class="insta-item" style="--g: linear-gradient(135deg, #8b0000, #e84a5f);"><i class="ph-fill ph-instagram-logo"></i></div>
+                <div class="insta-item" style="--g: linear-gradient(135deg, #2c2c2c, #d4af37);"><i class="ph-fill ph-instagram-logo"></i></div>
+                <div class="insta-item" style="--g: linear-gradient(135deg, #0f3460, #16537e);"><i class="ph-fill ph-instagram-logo"></i></div>
+                <div class="insta-item" style="--g: linear-gradient(135deg, #2d4a2b, #6b8e23);"><i class="ph-fill ph-instagram-logo"></i></div>
+                <div class="insta-item" style="--g: linear-gradient(135deg, #d4af37, #f4d47c);"><i class="ph-fill ph-instagram-logo"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark">
+                            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="30" r="28" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                                <text x="30" y="40" text-anchor="middle" font-family="Playfair Display, serif" font-size="32" font-weight="700" fill="#d4af37">L</text>
+                            </svg>
+                        </div>
+                        <span class="logo-name">LUXE</span>
+                    </a>
+                    <p>Where luxury meets lifestyle. Curating the world's finest pieces since 2015.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="ph-fill ph-x-logo"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="ph-fill ph-pinterest-logo"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">Bestsellers</a>
+                    <a href="#">Sale</a>
+                    <a href="#">Gift Cards</a>
+                    <a href="#">All Collections</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <a href="#" id="openChatFromFooter">Contact Us</a>
+                    <a href="#">Shipping Info</a>
+                    <a href="#">Returns</a>
+                    <a href="#" id="openSizeGuide">Size Guide</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About LUXE</a>
+                    <a href="#">Sustainability</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#">Affiliates</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p><i class="ph-fill ph-map-pin"></i> 5th Avenue, New York, NY 10001</p>
+                    <p><i class="ph-fill ph-phone"></i> +1 (800) LUXE-CARE</p>
+                    <p><i class="ph-fill ph-envelope"></i> hello@luxe.com</p>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                        <i class="fab fa-google-pay"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 LUXE. All rights reserved. Crafted with <i class="ph-fill ph-heart" style="color:var(--accent-red)"></i> for those who appreciate the finer things.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============== CART DRAWER ============== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3><i class="ph-fill ph-shopping-bag"></i> Your Cart <span id="cartItemCount">(0)</span></h3>
+            <button class="drawer-close" id="cartClose"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="drawer-body" id="cartBody">
+            <div class="cart-empty">
+                <i class="ph-duotone ph-shopping-bag-open"></i>
+                <h4>Your cart is empty</h4>
+                <p>Start shopping to add items to your cart</p>
+                <button class="btn btn-primary" id="continueShopping">Continue Shopping</button>
+            </div>
+        </div>
+        <div class="drawer-footer" id="cartFooter" style="display:none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">$0.00</strong>
+            </div>
+            <p class="cart-shipping-note">Shipping & taxes calculated at checkout</p>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout <i class="ph-fill ph-lock-key"></i></button>
+            <button class="btn btn-ghost btn-block" id="continueShopping2">Continue Shopping</button>
+        </div>
+    </aside>
+
+    <!-- ============== WISHLIST DRAWER ============== -->
+    <aside class="cart-drawer wishlist-drawer" id="wishlistDrawer">
+        <div class="drawer-header">
+            <h3><i class="ph-fill ph-heart"></i> Your Wishlist <span id="wishlistItemCount">(0)</span></h3>
+            <button class="drawer-close" id="wishlistClose"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="drawer-body" id="wishlistBody">
+            <div class="cart-empty">
+                <i class="ph-duotone ph-heart"></i>
+                <h4>Your wishlist is empty</h4>
+                <p>Save your favorite items here</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============== COMPARE DRAWER ============== -->
+    <aside class="cart-drawer compare-drawer" id="compareDrawer">
+        <div class="drawer-header">
+            <h3><i class="ph-fill ph-scales"></i> Compare Products <span id="compareItemCount">(0)</span></h3>
+            <button class="drawer-close" id="compareClose"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="drawer-body" id="compareBody">
+            <div class="cart-empty">
+                <i class="ph-duotone ph-scales"></i>
+                <h4>No products to compare</h4>
+                <p>Add up to 3 products to compare side-by-side</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============== QUICK VIEW MODAL ============== -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content" id="quickViewContent"></div>
+    </div>
+
+    <!-- ============== SIZE GUIDE MODAL ============== -->
+    <div class="modal" id="sizeGuideModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content size-guide-content">
+            <button class="qv-close" id="sizeGuideClose"><i class="ph ph-x"></i></button>
+            <div class="size-guide-inner">
+                <span class="qv-cat">— Measurements</span>
+                <h2>Size <em>Guide</em></h2>
+                <div class="size-tabs">
+                    <button class="size-tab active" data-tab="women">Women</button>
+                    <button class="size-tab" data-tab="men">Men</button>
+                    <button class="size-tab" data-tab="shoes">Shoes</button>
+                </div>
+                <div class="size-table-wrap">
+                    <table class="size-table" id="sizeTable"></table>
+                </div>
+                <p class="size-note"><i class="ph ph-info"></i> All measurements are in inches. For best results, measure over light clothing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============== TOAST CONTAINER ============== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ============== LIVE NOTIFICATIONS ============== -->
+    <div class="live-notification" id="liveNotification">
+        <div class="live-avatar"></div>
+        <div class="live-content">
+            <p><strong id="liveName"></strong> just purchased</p>
+            <span id="liveProduct"></span>
+            <small><i class="ph-fill ph-clock"></i> <span id="liveTime"></span></small>
+        </div>
+        <button class="live-close" id="liveClose"><i class="ph ph-x"></i></button>
+    </div>
+
+    <!-- ============== SCROLL TO TOP ============== -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <svg viewBox="0 0 50 50" class="scroll-top-svg">
+            <circle cx="25" cy="25" r="22" fill="none" stroke="rgba(212,175,55,.2)" stroke-width="2"/>
+            <circle cx="25" cy="25" r="22" fill="none" stroke="url(#scrollGrad)" stroke-width="2"
+                stroke-dasharray="138.23" stroke-dashoffset="138.23" id="scrollTopProgress"/>
+            <defs>
+                <linearGradient id="scrollGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f4d47c"/>
+                    <stop offset="100%" stop-color="#d4af37"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <i class="ph-fill ph-arrow-up"></i>
+    </button>
+
+    <!-- ============== MOBILE BOTTOM NAV ============== -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a href="#home" class="mb-nav-item active"><i class="ph-fill ph-house-simple"></i><span>Home</span></a>
+        <a href="#collections" class="mb-nav-item"><i class="ph ph-squares-four"></i><span>Shop</span></a>
+        <button class="mb-nav-item" id="mbSearchBtn"><i class="ph ph-magnifying-glass"></i><span>Search</span></button>
+        <button class="mb-nav-item" id="mbWishlistBtn"><i class="ph ph-heart"></i><span>Wish</span><span class="mb-badge" id="mbWishCount">0</span></button>
+        <button class="mb-nav-item" id="mbCartBtn"><i class="ph-fill ph-shopping-bag"></i><span>Cart</span><span class="mb-badge" id="mbCartCount">0</span></button>
+    </nav>
+
+    <!-- ============== AI CHATBOT — LUXE CONCIERGE ============== -->
+    <div class="chatbot-launcher" id="chatLauncher" aria-label="Chat with us">
+        <div class="chat-pulse"></div>
+        <div class="chat-pulse delay"></div>
+        <i class="ph-fill ph-chat-circle-dots"></i>
+        <span class="chat-launcher-badge" id="chatLauncherBadge">1</span>
+        <div class="chat-tooltip">Need help? Chat with Luxa</div>
+    </div>
+
+    <div class="chatbot-window" id="chatWindow">
+        <div class="chatbot-header">
+            <div class="chat-avatar-wrap">
+                <div class="chat-avatar">
+                    <span>L</span>
+                </div>
+                <span class="chat-status"></span>
+            </div>
+            <div class="chat-header-info">
+                <h4>Luxa <span class="chat-verified"><i class="ph-fill ph-seal-check"></i></span></h4>
+                <p><span class="status-dot"></span> Online · LUXE Concierge</p>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-action" id="chatMinimize" aria-label="Minimize"><i class="ph ph-minus"></i></button>
+                <button class="chat-action" id="chatClose" aria-label="Close"><i class="ph ph-x"></i></button>
+            </div>
+        </div>
+
+        <div class="chatbot-body" id="chatBody">
+            <!-- Messages injected here -->
+        </div>
+
+        <div class="chatbot-typing" id="chatTyping" style="display:none;">
+            <div class="typing-avatar">L</div>
+            <div class="typing-bubble">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="chatbot-quick-replies" id="chatQuickReplies"></div>
+
+        <div class="chatbot-footer">
+            <button class="chat-attach" aria-label="Attach"><i class="ph ph-paperclip"></i></button>
+            <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
+            <button class="chat-emoji" id="chatEmojiBtn" aria-label="Emoji"><i class="ph ph-smiley"></i></button>
+            <button class="chat-send" id="chatSend" aria-label="Send"><i class="ph-fill ph-paper-plane-right"></i></button>
+        </div>
+        <div class="chat-footer-note">Powered by <span>LUXE AI</span> · Avg. reply &lt; 1 min</div>
+    </div>
+
+    <!-- ============== CONFETTI CANVAS ============== -->
+    <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+    <script src="js/products.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
